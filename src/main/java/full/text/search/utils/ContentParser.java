@@ -21,6 +21,8 @@ public class ContentParser {
             content = content.replace(talk, "");
         }
 
+        if (content.trim().isEmpty()) return new String[0];
+
         return content.trim().split(" ");
     }
 }
