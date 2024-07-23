@@ -18,7 +18,7 @@ public class SearchController {
         this.documentSearchService = documentSearchService;
     }
 
-    @GetMapping("/")
+    @GetMapping("")
     public List<String> searchDocuments(@RequestParam String q) {
         return documentSearchService.search(q.split(","));
     }
