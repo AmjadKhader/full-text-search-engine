@@ -33,14 +33,18 @@ public class DocumentSearchService {
     public List<Document> saveAll(List<String> contents) {
         List<Document> documents = new ArrayList<>();
         for (String content : contents) {
-            documents.add(save(content));
+
+            Document document = save(content);
+            if (Objects.nonNull(document)) {
+                documents.add(document);
+            }
         }
         return documents;
     }
 
     public Document save(String documentContent) {
         String[] words = ContentParser.parse(documentContent);
-
+        if (words.length == 0) return null;
         for (String word : words) {
             if (word.isEmpty()) continue;
 
@@ -95,5 +99,11 @@ public class DocumentSearchService {
         }
 
         return new ArrayList<>(documents); // Convert back to List for a final result
+    }
+
+    public void removeAllDocuments() {
+        index.clear();
+        allDocuments.clear();
+        documentsWords.clear();
     }
 }
