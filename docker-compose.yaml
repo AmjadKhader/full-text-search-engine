@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  text-search-engine:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: on-failure
+    image: text-search-engine
+    ports:
+      - "8092:8092"
