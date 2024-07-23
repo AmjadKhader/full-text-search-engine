@@ -8,6 +8,7 @@ documents based on their content.
 - [Features](#features)
 - [Installation](#installation)
 - [API Endpoints](#api-endpoints)
+- [Ranking](#how-to-rank-documents-based-on-the-users-query)
 
 ## Features
 
@@ -69,3 +70,11 @@ Search for documents containing "sample" and "document":
 curl http://localhost:8092/text-search-engine/api/search?q=sample,document
 ```
 
+## How to rank documents based on the user’s query?
+1. Term Frequency:
+   Measures how often a term appears in a document.
+   The more frequent a term appears, the more relevant the document is considered for that term.
+2. Document Frequency:
+   Measures the importance of a term across the entire collection of documents.
+   Rare terms get higher weight using Log N/nt where N is the total number of documents and nt is is the number of
+   documents containing term.
