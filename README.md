@@ -56,6 +56,7 @@ curl --location 'http://localhost:8092/text-search-engine/api/documents/'
 ```
 
 ### Delete Document
+
 ```
 curl --location --request DELETE 'http://localhost:8092/text-search-engine/api/documents/60e053f2-62f4-4df7-8503-ff248e690936'
 ```
